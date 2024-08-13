@@ -4,3 +4,9 @@ evaluators - class assigner  ds
 classifiers- trees j48
 ealuator-classifier performance evaluator text 
 visualization text viewer
+
+
+arff loader 
+attribute selection 
+normalization 
+arff saver 
