@@ -1,0 +1,6 @@
+data sources -arrf loader ds
+evaluators - class assigner  ds
+		- cross validation traing set 
+classifiers- trees j48
+ealuator-classifier performance evaluator text 
+visualization text viewer
