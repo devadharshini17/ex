@@ -1,0 +1,47 @@
+library(ggplot2)
+
+data <- data.frame(
+  Training = c("Strength", "Stamina", "Other"),
+  Pulse = c(100, 150, 120),
+  Duration = c(60, 30, 45)
+)
+
+# Bar plot
+ggplot(data, aes(x=Training, y=Pulse)) + 
+  geom_bar(stat="identity") + 
+  labs(title="Bar Plot of Pulse", x="Training", y="Pulse")
+
+# Stacked bar plot
+ggplot(data, aes(x=Training, y=Pulse)) + 
+  geom_bar(stat="identity", aes(fill="Pulse")) + 
+  geom_bar(stat="identity", aes(y=Duration, fill="Duration")) + 
+  labs(title="Stacked Bar Plot of Pulse and Duration", x="Training", y="Value", fill="Variable")
+
+# Pie chart
+ggplot(data, aes(x="", y=..count.., fill=Training)) + 
+  geom_bar(width=1) + 
+  coord_polar(theta="y") + 
+  labs(title="Pie Chart of Training", fill="Training")
+
+# Area plot
+ggplot(data, aes(x=Training, y=Pulse, group=1)) + 
+  geom_line() + 
+  geom_line(aes(y=Duration, group=1), color="red") + 
+  labs(title="Area Plot of Pulse and Duration", x="Training", y="Value")
+
+# Density plot
+ggplot(data, aes(x=Pulse)) + 
+  geom_density() + 
+  geom_density(aes(x=Duration), color="red") + 
+  labs(title="Density Plot of Pulse and Duration", x="Value", y="Density")
+
+# Violin plot
+ggplot(data, aes(x=Training, y=Pulse)) + 
+  geom_violin() + 
+  labs(title="Violin Plot of Pulse", x="Training", y="Pulse")
+
+# QQ plot
+ggplot(data, aes(sample=Pulse)) + 
+  stat_qq() + 
+  stat_qq_line() + 
+  labs(title="QQ Plot of Pulse", x="Theoretical Quantiles", y="Sample Quantiles")
