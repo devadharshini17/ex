@@ -23,11 +23,6 @@ ggplot(data, aes(x="", y=..count.., fill=Training)) +
   coord_polar(theta="y") + 
   labs(title="Pie Chart of Training", fill="Training")
 
-# Area plot
-ggplot(data, aes(x=Training, y=Pulse, group=1)) + 
-  geom_line() + 
-  geom_line(aes(y=Duration, group=1), color="red") + 
-  labs(title="Area Plot of Pulse and Duration", x="Training", y="Value")
 
 # Density plot
 ggplot(data, aes(x=Pulse)) + 
@@ -45,3 +40,28 @@ ggplot(data, aes(sample=Pulse)) +
   stat_qq() + 
   stat_qq_line() + 
   labs(title="QQ Plot of Pulse", x="Theoretical Quantiles", y="Sample Quantiles")
+
+#line plot
+ggplot(Data_Frame, aes(x=Training, y=Count, group=1)) + 
+  geom_line() + 
+  labs(title="Line Chart of Training", x="Training", y="Count")
+
+#scatter
+ggplot(Data_Frame, aes(x=Training, y=Count)) + 
+  geom_point() + 
+  labs(title="Scatter Plot of Training", x="Training", y="Count")
+
+#histogram
+ggplot(Data_Frame, aes(x=Count)) + 
+  geom_histogram(binwidth=0.5, color="black") + 
+  labs(title="Histogram of Count", x="Count", y="Frequency")
+
+#box
+ggplot(Data_Frame, aes(x=Training, y=Count)) + 
+  geom_boxplot() + 
+  labs(title="Box Plot of Training", x="Training", y="Count")
+
+#area
+ggplot(Data_Frame, aes(x=Training, y=Count)) + 
+  geom_area() + 
+  labs(title="Area Chart of Training", x="Training", y="Count")
